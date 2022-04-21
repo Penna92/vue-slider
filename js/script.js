@@ -40,13 +40,31 @@ const app = new Vue({
   },
   methods: {
     nextSlide() {
+        let img = document.getElementById("central-image");
+        
       if (this.activeIndex === 4) {
+        img.classList.remove("active-animation")
+        const myTimeout = setTimeout(imgAnimation, 20);
+        function imgAnimation() {
+        img.classList.add("active-animation")
+        }
         this.activeIndex = 0;
       } else {
+        img.classList.remove("active-animation")
+        const myTimeout = setTimeout(imgAnimation, 20);
+        function imgAnimation() {
+        img.classList.add("active-animation")
+        }
         this.activeIndex += 1;
       }
     },
     prevSlide() {
+        let img = document.getElementById("central-image");
+        img.classList.remove("active-animation")
+        const myTimeout = setTimeout(imgAnimation, 1);
+        function imgAnimation() {
+            img.classList.add("active-animation")
+        }
       if (this.activeIndex === 0) {
         this.activeIndex = 4;
       } else {
@@ -63,17 +81,14 @@ const app = new Vue({
       clearInterval(this.intervalId);
       this.intervalId = null;
     },
-    changeOnClick() {
-      event.currentTarget.classList.add("active");
-      const thumbs = document.getElementsByClassName("thumb");
-      const imgs = document.getElementsByClassName("item");
-      for (let i = 0; i < thumbs.length; i++) {
-        if (event.currentTarget === thumbs[i]) {
-          this.activeIndex = i;
-          console.log(this.activeIndex);
-          //   imgs[i].classList.add("active-animation")
+    changeOnClick(index) {
+        let img = document.getElementById("central-image");
+        img.classList.remove("active-animation")
+        const myTimeout = setTimeout(imgAnimation, 1);
+        function imgAnimation() {
+            img.classList.add("active-animation")
         }
-      }
+        this.activeIndex = index;
     },
   },
   mounted() {

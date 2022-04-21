@@ -97,6 +97,10 @@
     z-index: 999;
 }
 
+.prev:hover, .next:hover{
+    background-color: white;
+}
+
 .next {
     bottom: 0;
 }
