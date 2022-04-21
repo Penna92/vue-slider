@@ -20,7 +20,7 @@
             @keyup.up="prevSlide()"
             @keyup.down="nextSlide()">
 
-                <div class="item">
+                <div class="item active-animation">
                     <img :src="slides[activeIndex].image" :alt="slides[activeIndex].title" />
                     <div class="text">
                         <h3>{{slides[activeIndex].title}}</h3>
@@ -33,7 +33,7 @@
                 <div class="thumbs">
                     <div class="prev" @click="prevSlide"></div>
                     <div class="next" @click="nextSlide"></div>
-                    <div class="thumb" :class="{'active': index===activeIndex}" v-for="(item, index) in slides">
+                    <div class="thumb pointer" @click="changeOnClick" :class="{'active': index===activeIndex}" v-for="(item, index) in slides">
                         <img :src="item.image" :alt="item.title"/>
                     </div>
                     <!-- <div class="thumb">
