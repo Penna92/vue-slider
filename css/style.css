@@ -32,34 +32,15 @@
     color: white;
 }
 
-.active-animation {
-    display: block;
-    animation-name: FadeInOut;
-    animation-timing-function: linear;
-    animation-duration: 3s;
-  }
+.animation {
+    animation-name: animation;
+    animation-duration: 1.5s;
+}
   
-  @keyframes FadeInOut {
-    0% {
-      opacity: 0;
-    }
-  
-    25% {
-      opacity: 0.5;
-    }
-  
-    50% {
-      opacity: 1;
-    }
-  
-    75% {
-      opacity: 1;
-    }
-  
-    100% {
-      opacity: 1;
-    }
-  }
+@keyframes animation {
+from {opacity: .2}
+to {opacity: 1}
+}
 
 .thumbs {
     float: left;

@@ -37,39 +37,34 @@ const app = new Vue({
     ],
     activeIndex: 0,
     intervalId: null,
+    animation: "",
   },
   methods: {
     nextSlide() {
-        let img = document.getElementById("central-image");
-        
       if (this.activeIndex === 4) {
-        img.classList.remove("active-animation")
-        const myTimeout = setTimeout(imgAnimation, 20);
-        function imgAnimation() {
-        img.classList.add("active-animation")
-        }
+        this.animation = "";
+        setTimeout(() => {
+          this.animation = "animation";
+        }, 1);
         this.activeIndex = 0;
       } else {
-        img.classList.remove("active-animation")
-        const myTimeout = setTimeout(imgAnimation, 20);
-        function imgAnimation() {
-        img.classList.add("active-animation")
-        }
+        this.animation = "";
+        setTimeout(() => {
+          this.animation = "animation";
+        }, 1);
         this.activeIndex += 1;
       }
     },
     prevSlide() {
-        let img = document.getElementById("central-image");
-        img.classList.remove("active-animation")
-        const myTimeout = setTimeout(imgAnimation, 1);
-        function imgAnimation() {
-            img.classList.add("active-animation")
-        }
+      this.animation = "";
       if (this.activeIndex === 0) {
         this.activeIndex = 4;
       } else {
         this.activeIndex -= 1;
       }
+      setTimeout(() => {
+        this.animation = "animation";
+      }, 1);
     },
     autoScroll() {
       this.intervalId = setInterval(() => {
@@ -82,13 +77,11 @@ const app = new Vue({
       this.intervalId = null;
     },
     changeOnClick(index) {
-        let img = document.getElementById("central-image");
-        img.classList.remove("active-animation")
-        const myTimeout = setTimeout(imgAnimation, 1);
-        function imgAnimation() {
-            img.classList.add("active-animation")
-        }
-        this.activeIndex = index;
+      this.animation = "";
+      setTimeout(() => {
+        this.animation = "animation";
+      }, 1);
+      this.activeIndex = index;
     },
   },
   mounted() {
